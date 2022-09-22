@@ -1,13 +1,15 @@
-import { useState, useEffect } from "react";
 import "./App.css";
-import Categories from "./assets/components/categories-items/categories-items.components";
+import Home from "./routes/home/home.component";
+import { Routes, Route } from "react-router-dom";
+import Shop from "./assets/components/shop-items/Shop-component";
 
 function App() {
- 
   return (
-    <div className="App">
-      <Categories />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />}>
+        <Route path="shop" element={<Shop />} />
+      </Route>
+    </Routes>
   );
 }
 
