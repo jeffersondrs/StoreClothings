@@ -18,14 +18,14 @@ export default function Navegation() {
           <Link className="nav-link py-4 px-2 cursor-pointer" to="/shop">
             CONTACT
           </Link>
-          <Link className="nav-link py-4 px-2 cursor-pointer bg-blue-900/60 m-2 hover:bg-blue-700/60 ease-in-out rounded-3xl text-white" to="/shop">
+          <Link className="nav-link py-4 px-2 cursor-pointer bg-blue-900/60 m-2 hover:bg-blue-700/60x rounded-3xl text-white" to="/sign-in">
             Sign-in
           </Link>
           <Link className="nav-link py-4 px-2 cursor-pointer" to="/shop">
             <BiShoppingBag />
           </Link>
         </div>
-      </div>
+      </div> 
       <Outlet />
     </>
   );
