@@ -49,12 +49,14 @@ export default function SignUpForm() {
 
   return (
     <div className="w-96 h-96 flex flex-col justify-center m-2 p-2">
-      <h1 className="text-2xl text-center my-3">Sign Up with your e-mail and password</h1>
+      <h1 className="text-2xl text-center my-3">
+        Sign Up with your e-mail and password
+      </h1>
       <form
         className="flex flex-col items-center justify-center p-2"
         onSubmit={handleSubmit}
       >
-      <FormInput
+        <FormInput
           label="Name Complete"
           type="text"
           required

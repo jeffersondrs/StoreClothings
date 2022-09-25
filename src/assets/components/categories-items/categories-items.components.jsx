@@ -32,7 +32,7 @@ const Categories = () => {
   ];
 
   return (
-    <div className="App">
+    <div>
       <div>
         <Outlet />
       </div>

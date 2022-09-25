@@ -1,3 +1,4 @@
+import { FcGoogle } from "react-icons/fc";
 import {
   signInWithGooglePopup,
   createUserDocumentFromAuth,
@@ -14,18 +15,19 @@ export default function SignIn() {
   return (
     <>
       <div className="flex flex-col justify-center items-center">
-        <h1>Sign In</h1>
+        <h2 className="mt-2">Don't have an account?</h2>
         <SignUpForm />
       </div>
+      <p className="text-center my-3">OR</p>
       <div className="flex flex-row justify-center items-center">
-        <button className="w-56 bg-black/90 text-white h-12 p-2 m-1 rounded-md hover:bg-black">
+        <button className="w-36 bg-gray-700 text-white h-12 p-2 m-1 rounded-md hover:bg-black">
           SIng IN
         </button>
         <button
-          className="w-56 h-12 text-white m-1 p-2 rounded-md bg-blue-800/90 hover:bg-blue-900"
+          className="w-36 h-12 text-white m-1 p-2 rounded-md bg-blue-400 hover:bg-blue-500 flex flex-row items-center justify-center"
           onClick={logGoogleUser}
         >
-          Sign in with Google
+          <FcGoogle className="mx-3 rounded-full w-7 h-7" />
         </button>
       </div>
     </>
