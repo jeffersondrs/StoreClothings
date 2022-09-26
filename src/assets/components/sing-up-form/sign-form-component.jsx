@@ -4,6 +4,7 @@ import {
   createUserDocumentFromAuth,
 } from "../../../utils/firebase/firebase.utils";
 import FormInput from "../form-input/Form-input.component";
+import Button from "../button/button.component";
 const defaultFormFields = {
   displayName: "",
   email: "",
@@ -88,12 +89,12 @@ export default function SignUpForm() {
           name="confirmPassword"
           value={confirmPassword}
         />
-        <button
-          className="bg-cyan-900 w-36 h-10 rounded-lg my-2 text-white hover:bg-cyan-700 ease-in-out"
+        <Button
+          className="bg-cyan-900 w-36 h-10 rounded-lg my-2 text-white hover:bg-white hover:text-black ease-in-out"
           type="submit"
         >
           Sign Up
-        </button>
+        </Button>
       </form>
     </div>
   );
