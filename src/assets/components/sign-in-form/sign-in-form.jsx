@@ -26,10 +26,18 @@ export default function SignInForm() {
 
     try {
       const response = await signInAuthWithEmailAndPassword(email, password);
-      console.log(response);
       resetFormFields();
     } catch (err) {
-      message: err.message;
+      switch (err.code) {
+        case "auth/wrong-password":
+          alert("Incorrect password for email");
+          break;
+        case "auth/user-not-found":
+          alert("Email not found, please check your email and try again");
+          break;
+        default:
+          console.log(err.code);
+      }
     }
   };
   const handleChange = (event) => {
@@ -69,10 +77,11 @@ export default function SignInForm() {
           value={password}
         />
         <div className="flex flex-row">
-          <Button className="w-36 bg-white text-black h-12 p-2 m-1 rounded-md hover:bg-gray-900 hover:text-white">
+          <Button type="submit" className="w-36 bg-white text-black h-12 p-2 m-1 rounded-md hover:bg-gray-900 hover:text-white">
             SIng IN
           </Button>
           <Button
+            type="button"
             className="w-36 h-12 text-white m-1 p-2 rounded-md bg-white hover:bg-blue-900 flex flex-row items-center justify-center"
             onClick={signInWithGoogle}
           >
