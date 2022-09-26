@@ -20,11 +20,11 @@ export default function SignIn() {
       </div>
       <p className="text-center my-3">OR</p>
       <div className="flex flex-row justify-center items-center">
-        <button className="w-36 bg-gray-700 text-white h-12 p-2 m-1 rounded-md hover:bg-black">
+        <button className="w-36 bg-gray-900 text-white h-12 p-2 m-1 rounded-md hover:bg-gray-700">
           SIng IN
         </button>
         <button
-          className="w-36 h-12 text-white m-1 p-2 rounded-md bg-blue-400 hover:bg-blue-500 flex flex-row items-center justify-center"
+          className="w-36 h-12 text-white m-1 p-2 rounded-md bg-blue-900 hover:bg-blue-700 flex flex-row items-center justify-center"
           onClick={logGoogleUser}
         >
           <FcGoogle className="mx-3 rounded-full w-7 h-7" />
