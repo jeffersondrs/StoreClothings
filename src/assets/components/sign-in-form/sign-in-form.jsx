@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import {
   signInWithGooglePopup,
+  signInAuthWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from "../../../utils/firebase/firebase.utils";
 import FormInput from "../form-input/Form-input.component";
@@ -24,6 +25,8 @@ export default function SignInForm() {
     event.preventDefault();
 
     try {
+      const response = await signInAuthWithEmailAndPassword(email, password);
+      console.log(response);
       resetFormFields();
     } catch (err) {
       message: err.message;

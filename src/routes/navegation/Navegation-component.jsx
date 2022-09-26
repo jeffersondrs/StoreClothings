@@ -11,7 +11,7 @@ export default function Navegation() {
             <SiReactos className="w-6 h-6" />
           </div>
         </Link>
-        <div className="flex flex-row items-center">
+        <div className="flex flex-row items-center mr-6">
           <Link className="nav-link px-2 p-1 cursor-pointer" to="/shop">
             SHOP
           </Link>
