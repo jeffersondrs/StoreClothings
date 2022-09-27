@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
+import { UserContext } from "../../../contexts/user.context";
 import {
   signInWithGooglePopup,
   signInAuthWithEmailAndPassword,
@@ -17,6 +18,8 @@ export default function SignInForm() {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
+  const { setCurrentUser } = useContext(UserContext)
+
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
@@ -25,7 +28,8 @@ export default function SignInForm() {
     event.preventDefault();
 
     try {
-      const response = await signInAuthWithEmailAndPassword(email, password);
+      const user = await signInAuthWithEmailAndPassword(email, password);
+      setCurrentUser(user);
       resetFormFields();
     } catch (err) {
       switch (err.code) {
@@ -77,7 +81,10 @@ export default function SignInForm() {
           value={password}
         />
         <div className="flex flex-row">
-          <Button type="submit" className="w-36 bg-white text-black h-12 p-2 m-1 rounded-md hover:bg-gray-900 hover:text-white">
+          <Button
+            type="submit"
+            className="w-36 bg-white text-black h-12 p-2 m-1 rounded-md hover:bg-gray-900 hover:text-white"
+          >
             SIng IN
           </Button>
           <Button
