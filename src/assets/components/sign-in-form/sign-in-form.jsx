@@ -1,6 +1,5 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { UserContext } from "../../../contexts/user.context";
 import {
   signInWithGooglePopup,
   signInAuthWithEmailAndPassword,
@@ -18,8 +17,6 @@ export default function SignInForm() {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
-  const { setCurrentUser } = useContext(UserContext)
-
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
@@ -29,7 +26,6 @@ export default function SignInForm() {
 
     try {
       const user = await signInAuthWithEmailAndPassword(email, password);
-      setCurrentUser(user);
       resetFormFields();
     } catch (err) {
       switch (err.code) {
@@ -52,8 +48,7 @@ export default function SignInForm() {
     });
   };
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    const userDocRef = await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
   };
 
   return (
