@@ -1,3 +1,4 @@
+import "./button.styles.scss";
 const btnTypesClasses = {
   google: "google-sign-in",
   inverted: "inverted",

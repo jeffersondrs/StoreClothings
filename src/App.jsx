@@ -1,7 +1,7 @@
 import "./App.css";
 import Home from "./routes/home/home.component";
 import { Routes, Route } from "react-router-dom";
-import Shop from "./assets/components/shop-items/Shop-component";
+import Shop from "./routes/shop/Shop-component";
 import ShoppingCart from "./assets/components/shopping cart/shopping-cart";
 import Contact from "./assets/components/contact/contact-component";
 import Navegation from "./routes/navegation/Navegation-component";

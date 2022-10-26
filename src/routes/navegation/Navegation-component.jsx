@@ -1,5 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
-import { BiShoppingBag } from "react-icons/bi";
+import CartIcon from "../../assets/components/cart-icon/cart-icon.component";
+import CartDropdown from "../../assets/components/cart-dropdown/cart-dropdown.component";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/user.context";
 import { SiReactos } from "react-icons/si";
@@ -7,10 +8,10 @@ import { signOutUser } from "../../utils/firebase/firebase.utils";
 
 export default function Navegation() {
   const { currentUser } = useContext(UserContext);
- 
+
   return (
     <>
-      <div className="flex flex-row w-screen justify-between items-center h-20 mb-1">
+      <div className="flex flex-row w-full justify-between items-center h-20 mb-1">
         <Link className="logo-container h-full w-16 p-6" to="/">
           <div>
             <SiReactos className="w-6 h-6" />
@@ -38,10 +39,9 @@ export default function Navegation() {
               Sign-in
             </Link>
           )}
-          <Link className="nav-link px-2 p-1 cursor-pointer" to="/shoppingcart">
-            <BiShoppingBag />
-          </Link>
+          <CartIcon />
         </div>
+        <CartDropdown />
       </div>
       <Outlet />
     </>
