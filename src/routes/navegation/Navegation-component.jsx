@@ -3,12 +3,13 @@ import CartIcon from "../../assets/components/cart-icon/cart-icon.component";
 import CartDropdown from "../../assets/components/cart-dropdown/cart-dropdown.component";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/user.context";
+import { CartContext } from "../../contexts/cart.context";
 import { SiReactos } from "react-icons/si";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 
 export default function Navegation() {
   const { currentUser } = useContext(UserContext);
-
+  const { isCartOpen } = useContext(CartContext);
   return (
     <>
       <div className="flex flex-row w-full justify-between items-center h-20 mb-1">
@@ -41,7 +42,7 @@ export default function Navegation() {
           )}
           <CartIcon />
         </div>
-        <CartDropdown />
+        {isCartOpen && <CartDropdown />}
       </div>
       <Outlet />
     </>
