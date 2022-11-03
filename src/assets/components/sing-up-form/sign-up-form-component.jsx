@@ -49,7 +49,7 @@ export default function SignUpForm() {
   };
 
   return (
-    <div className="w-96 h-96 flex flex-col justify-center m-2 p-2">
+    <div className="w-96 h-96 flex flex-col justify-center m-2 p-2 bg-black/25">
       <h1 className="text-2xl text-center my-3">Don't have an account?</h1>
       <h2 className="text-center my-3">
         Sign Up with your e-mail and password
@@ -91,7 +91,7 @@ export default function SignUpForm() {
           value={confirmPassword}
         />
         <Button
-          className="w-36 h-10 rounded-lg my-2 text-black hover:bg-blue-700 hover:text-white ease-in-out"
+          className="w-36 h-10 rounded-lg my-2 text-white hover:bg-blue-700 hover:text-white ease-in-out"
           type="submit"
         >
           Sign Up

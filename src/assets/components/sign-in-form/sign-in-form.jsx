@@ -52,7 +52,7 @@ export default function SignInForm() {
   };
 
   return (
-    <div className="w-96 h-96 flex flex-col justify-center m-2 p-2">
+    <div className="w-96 h-96 flex flex-col items-center justify-center m-2 p-2 bg-black/25">
       <h1 className="text-2xl text-center my-3">Already have an account?</h1>
       <span>Sign in with your email and password</span>
       <form
@@ -78,13 +78,13 @@ export default function SignInForm() {
         <div className="flex flex-row">
           <Button
             type="submit"
-            className="w-36 bg-white text-black h-12 p-2 m-1 rounded-md hover:bg-gray-900 hover:text-white"
+            className="w-36 bg-white/10 text-white h-12 p-2 m-1 rounded-md hover:bg-gray-900 hover:text-white"
           >
             SIng IN
           </Button>
           <Button
             type="button"
-            className="w-36 h-12 text-white m-1 p-2 rounded-md bg-white hover:bg-blue-900 flex flex-row items-center justify-center"
+            className="w-36 h-12 text-white m-1 p-2 rounded-md bg-white/10 hover:bg-blue-900 flex flex-row items-center justify-center"
             onClick={signInWithGoogle}
           >
             <FcGoogle className="mx-3 rounded-full w-7 h-7" />
