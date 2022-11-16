@@ -7,10 +7,18 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-  onAuthStateChanged
+  onAuthStateChanged,
 } from "firebase/auth";
 
-import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  collection,
+  writeBatch,
+  doc,
+  getDoc,
+  setDoc,
+} from "firebase/firestore";
+import { cloneElement } from "react";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY,
@@ -36,6 +44,11 @@ export const signInWithGoogleRedirect = () =>
   signInWithRedirect(auth, googleProvider);
 
 export const db = getFirestore();
+
+export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+  const collectionRef = collection(db, collectionKey);
+  
+}
 
 export const createUserDocumentFromAuth = async (
   userAuth,
@@ -75,4 +88,6 @@ export const signInAuthWithEmailAndPassword = async (email, password) => {
 
 export const signOutUser = async () => await signOut(auth);
 
-export const onAuthStateChangedListener = (callback) => {onAuthStateChanged(auth, callback )}
+export const onAuthStateChangedListener = (callback) => {
+  onAuthStateChanged(auth, callback);
+};

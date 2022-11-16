@@ -8,8 +8,13 @@
     padding: 0;
     margin: 0;
 }
-body{
-    padding: 20px 20px;
-    background: rgb(95, 16, 170);
+body {
+    background: rgb(8, 6, 37);
+    background: linear-gradient(
+      90deg,
+      rgba(8, 6, 37, 1) 23%,
+      rgba(31, 22, 130, 1) 56%,
+      rgba(39, 4, 87, 1) 94%
+    );
     color: white;
-}
+  }
