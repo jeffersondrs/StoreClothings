@@ -4,5 +4,5 @@ Deploy: https://lustrous-stardust-bf8131.netlify.app/
 
 <p align="center">
     <h1>Layout in progress</h1>
-    <img width="600" src="public/images/ezgif.com-gif-maker.gif">
+    <img width="600" src="public/images/videomaker.gif">
 </p>
