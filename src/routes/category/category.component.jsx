@@ -16,7 +16,7 @@ export default function Category() {
 
   return (
     <>
-      <h2 className="title mx-10">{category.toUpperCase()}</h2>
+      <h2 className="category-title mx-10">{category.toUpperCase()}</h2>
       <div className="category-container">
         {categoryItems &&
           categoryItems.map((item) => (
