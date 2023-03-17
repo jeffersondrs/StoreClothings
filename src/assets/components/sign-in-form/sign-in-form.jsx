@@ -3,11 +3,10 @@ import { FcGoogle } from "react-icons/fc";
 import {
   signInWithGooglePopup,
   signInAuthWithEmailAndPassword,
-  createUserDocumentFromAuth,
 } from "../../../utils/firebase/firebase.utils";
 import FormInput from "../form-input/Form-input.component";
-import Button from "../button/button.component";
-import "./sign-in-form.styles.scss";
+import Button, { btnTypesClasses } from "../button/button.component";
+import { SignInFormContainer, HeaderSingIn } from "./sign-in-form.styles";
 const defaultFormFields = {
   email: "",
   password: "",
@@ -52,13 +51,12 @@ export default function SignInForm() {
   };
 
   return (
-    <div className="w-96 h-96 flex flex-col items-center justify-center m-2 p-2 bg-black/25">
-      <h1 className="text-2xl text-center my-3">Already have an account?</h1>
-      <span>Sign in with your email and password</span>
-      <form
-        className="flex flex-col items-center justify-center p-2 mt-4"
-        onSubmit={handleSubmit}
-      >
+    <div className="flex flex-col items-center justify-center m-2 p-2">
+      <HeaderSingIn>
+        <h1 className="text-2xl text-center my-3">Already have an account?</h1>
+        <span>Sign in with your email and password</span>
+      </HeaderSingIn>
+      <SignInFormContainer onSubmit={handleSubmit}>
         <FormInput
           label="E-mail"
           type="email"
@@ -66,6 +64,7 @@ export default function SignInForm() {
           onChange={handleChange}
           name="email"
           value={email}
+          placeholder="E-mail"
         />
         <FormInput
           label="password"
@@ -74,8 +73,9 @@ export default function SignInForm() {
           onChange={handleChange}
           name="password"
           value={password}
+          placeholder="Password"
         />
-        <div className="flex flex-row">
+        <div className="flex flex-row flex-wrap justify-evenly items">
           <Button
             type="submit"
             className="w-36 bg-white/10 text-white h-12 p-2 m-1 rounded-md hover:bg-gray-900 hover:text-white"
@@ -83,6 +83,7 @@ export default function SignInForm() {
             SIng IN
           </Button>
           <Button
+            buttonTypes={btnTypesClasses.google}
             type="button"
             className="w-36 h-12 text-white m-1 p-2 rounded-md bg-white/10 hover:bg-blue-900 flex flex-row items-center justify-center"
             onClick={signInWithGoogle}
@@ -90,7 +91,7 @@ export default function SignInForm() {
             <FcGoogle className="mx-3 rounded-full w-7 h-7" />
           </Button>
         </div>
-      </form>
+      </SignInFormContainer>
     </div>
   );
 }

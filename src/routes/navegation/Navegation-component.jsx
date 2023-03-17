@@ -5,45 +5,43 @@ import { useContext } from "react";
 import { UserContext } from "../../contexts/user.context";
 import { CartContext } from "../../contexts/cart.context";
 import { SiReactos } from "react-icons/si";
+import { SlMenu } from "react-icons/sl";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
+import {
+  NavegationContainer,
+  LogoContainer,
+  NavLink,
+  NavLinksContainer,
+  LinkContainer,
+  MenuLinksContainer,
+} from "./navegation.styles";
 
 export default function Navegation() {
   const { currentUser } = useContext(UserContext);
   const { isCartOpen } = useContext(CartContext);
   return (
     <>
-      <div className="flex flex-row w-full justify-between items-center h-20 mb-1">
-        <Link className="logo-container h-full w-16 p-6" to="/">
+      <NavegationContainer>
+        <LogoContainer to="/">
           <div>
             <SiReactos className="w-6 h-6" />
           </div>
-        </Link>
-        <div className="flex flex-row items-center mr-6">
-          <Link className="nav-link px-2 p-1 cursor-pointer" to="/shop">
-            SHOP
-          </Link>
-          <Link className="nav-link px-2 p-1 cursor-pointer" to="/contact">
-            CONTACT
-          </Link>
+        </LogoContainer>
+        <NavLinksContainer>
+          <NavLink to="/shop">SHOP</NavLink>
+          <NavLink to="/contact">CONTACT</NavLink>
           {currentUser ? (
-            <span
-              onClick={signOutUser}
-              className="nav-link px-2 p-1 cursor-pointer bg-blue-900 m-2 hover:bg-blue-800 rounded-3xl text-white"
-            >
-              Sign Out
-            </span>
+            <LinkContainer onClick={signOutUser}>Sign Out</LinkContainer>
           ) : (
-            <Link
-              className="nav-link px-2 p-1 cursor-pointer bg-blue-900 m-2 hover:bg-blue-800 rounded-3xl text-white"
-              to="/auth"
-            >
-              Sign-in
-            </Link>
+            <LinkContainer to="/auth">Sign-in</LinkContainer>
           )}
           <CartIcon />
-        </div>
+        </NavLinksContainer>
+        <MenuLinksContainer>
+          <SlMenu className="w-6 h-6" />
+        </MenuLinksContainer>
         {isCartOpen && <CartDropdown />}
-      </div>
+      </NavegationContainer>
       <Outlet />
     </>
   );

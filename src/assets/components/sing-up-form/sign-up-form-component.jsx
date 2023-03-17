@@ -5,7 +5,8 @@ import {
 } from "../../../utils/firebase/firebase.utils";
 import FormInput from "../form-input/Form-input.component";
 import Button from "../button/button.component";
-import "./sing-up-form-button.styles.scss";
+import { SignInFormContainer } from "./sing-up-form-button.styles";
+
 const defaultFormFields = {
   displayName: "",
   email: "",
@@ -49,13 +50,12 @@ export default function SignUpForm() {
   };
 
   return (
-    <div className="w-96 h-96 flex flex-col justify-center m-2 p-2 bg-black/25">
+    <div className="flex flex-col justify-center items-center m-2 p-2">
       <h1 className="text-2xl text-center my-3">Don't have an account?</h1>
       <h2 className="text-center my-3">
         Sign Up with your e-mail and password
       </h2>
-      <form
-        className="flex flex-col items-center justify-center p-2"
+      <SignInFormContainer
         onSubmit={handleSubmit}
       >
         <FormInput
@@ -65,6 +65,7 @@ export default function SignUpForm() {
           onChange={handleChange}
           name="displayName"
           value={displayName}
+          placeholder="Nome Completo"
         />
         <FormInput
           label="E-mail"
@@ -73,6 +74,7 @@ export default function SignUpForm() {
           onChange={handleChange}
           name="email"
           value={email}
+          placeholder="E-mail"
         />
         <FormInput
           label="password"
@@ -81,6 +83,7 @@ export default function SignUpForm() {
           onChange={handleChange}
           name="password"
           value={password}
+          placeholder="Senha"
         />
         <FormInput
           label="Confirm password"
@@ -89,14 +92,18 @@ export default function SignUpForm() {
           onChange={handleChange}
           name="confirmPassword"
           value={confirmPassword}
+          placeholder="Confirme a senha"
         />
+        <div className="px-28">
+
         <Button
           className="w-36 h-10 rounded-lg my-2 text-white hover:bg-blue-700 hover:text-white ease-in-out"
           type="submit"
-        >
+          >
           Sign Up
         </Button>
-      </form>
+          </div>
+      </SignInFormContainer>
     </div>
   );
 }
