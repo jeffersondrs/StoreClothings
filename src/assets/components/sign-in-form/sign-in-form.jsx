@@ -64,7 +64,6 @@ export default function SignInForm() {
           onChange={handleChange}
           name="email"
           value={email}
-          placeholder="E-mail"
         />
         <FormInput
           label="password"
@@ -73,7 +72,6 @@ export default function SignInForm() {
           onChange={handleChange}
           name="password"
           value={password}
-          placeholder="Password"
         />
         <div className="flex flex-row flex-wrap justify-evenly items">
           <Button

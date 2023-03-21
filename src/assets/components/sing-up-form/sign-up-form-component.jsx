@@ -65,7 +65,6 @@ export default function SignUpForm() {
           onChange={handleChange}
           name="displayName"
           value={displayName}
-          placeholder="Nome Completo"
         />
         <FormInput
           label="E-mail"
@@ -74,7 +73,6 @@ export default function SignUpForm() {
           onChange={handleChange}
           name="email"
           value={email}
-          placeholder="E-mail"
         />
         <FormInput
           label="password"
@@ -83,7 +81,6 @@ export default function SignUpForm() {
           onChange={handleChange}
           name="password"
           value={password}
-          placeholder="Senha"
         />
         <FormInput
           label="Confirm password"
@@ -92,7 +89,6 @@ export default function SignUpForm() {
           onChange={handleChange}
           name="confirmPassword"
           value={confirmPassword}
-          placeholder="Confirme a senha"
         />
         <div className="px-28">
 
