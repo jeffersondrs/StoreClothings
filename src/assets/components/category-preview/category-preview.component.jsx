@@ -7,6 +7,7 @@ import ProductCard from "../product-card/product-card";
 import { Link } from "react-router-dom";
 
 export default function CategoryPreview({ title, products }) {
+
   return (
     <CategoryPreviewContainer>
       <TitleContainer>
