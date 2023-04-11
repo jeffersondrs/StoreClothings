@@ -6,7 +6,9 @@ export const NavegationContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem;
+  padding: 0.5rem 1.5rem;
+  background-color: #1e1e1e;
+  color: white;
 `;
 
 export const LogoContainer = styled(Link)`
@@ -15,6 +17,20 @@ export const LogoContainer = styled(Link)`
   justify-content: center;
   align-items: center;
   height: 100%;
+
+  :hover {
+    cursor: pointer;
+    animation: bounce 2s infinite linear;
+  }
+
+  @keyframes bounce {
+    0% {
+      trasnform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 `;
 
 export const NavLinksContainer = styled.div`
@@ -66,16 +82,12 @@ export const MenuLinksContainer = styled.div`
   display: none;
   @media screen and (max-width: 768px) {
     position: absolute;
-    width: 240px;
-    height: 340px;
     display: flex;
     flex-direction: column;
     padding: 5px;
-    border: 1px solid black;
-    background-color: white;
     top: 0px;
     right: 0px;
     z-index: 5;
-    color: black;
+    color: white;
   }
 `;

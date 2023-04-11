@@ -10,7 +10,7 @@ export default function Directory({ categories }) {
       <div>
         <Outlet />
       </div>
-      <div className="p-2 m-3 bg-transparent border border-solid text-white h-80 flex justify-center items-center">
+      <div className="p-2 m-3 bg-transparent border border-solid text-[#748697] h-80 flex justify-center items-center">
         <h1>Algum banner</h1>
       </div>
       <div className="w-full flex justify-center p-10">

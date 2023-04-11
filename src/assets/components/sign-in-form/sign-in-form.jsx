@@ -53,8 +53,8 @@ export default function SignInForm() {
   return (
     <div className="flex flex-col items-center justify-center m-2 p-2">
       <HeaderSingIn>
-        <h1 className="text-2xl text-center my-3">Already have an account?</h1>
-        <span>Sign in with your email and password</span>
+        <h1 className="text-2xl text-center my-3">Já tem uma conta?</h1>
+        <span>Entre com seu e-mail e senha</span>
       </HeaderSingIn>
       <SignInFormContainer onSubmit={handleSubmit}>
         <FormInput
@@ -66,7 +66,7 @@ export default function SignInForm() {
           value={email}
         />
         <FormInput
-          label="password"
+          label="Senha"
           type="password"
           required
           onChange={handleChange}
@@ -76,7 +76,7 @@ export default function SignInForm() {
         <div className="flex flex-row flex-wrap justify-evenly items">
           <Button
             type="submit"
-            className="w-36 bg-white/10 text-white h-12 p-2 m-1 rounded-md hover:bg-gray-900 hover:text-white"
+            className="w-36 bg-white/10 text-black h-12 p-2 m-1 rounded-md hover:bg-gray-900 hover:text-black"
           >
             SIng IN
           </Button>

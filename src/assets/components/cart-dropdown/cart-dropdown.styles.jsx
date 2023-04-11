@@ -18,12 +18,14 @@ export const CartDropdownContainer = styled.div`
   right: 40px;
   z-index: 5;
   color: black;
+  
 
   ${buttonStyles},
   ${GoogleSignInStyles},
   ${InvertedButtonStyles} {
     margin-top: auto;
   }
+
 `;
 
 export const EmptyMessage = styled.span`

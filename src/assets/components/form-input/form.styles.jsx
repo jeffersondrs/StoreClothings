@@ -41,7 +41,7 @@ export const FormInput = styled.input`
 
   &:focus ~ ${FormInputLabel} {
     ${shrinkLabelStyles};
-    color: white;
+    color: #748697;
   }
 `;
 

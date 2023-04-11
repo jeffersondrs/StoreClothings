@@ -10,8 +10,8 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-bottom: 30px ;
-  margin-top: 30px ;
+  margin-bottom: 30px;
+  margin-top: 30px;
 `;
 
 export const ContainerCarousel = styled.div`
@@ -54,22 +54,21 @@ export const Name = styled.span`
   font-size: 1.2rem;
   font-weight: bold;
   margin: 10px 0;
-  color: white;
 `;
 export const Buttons = styled.div`
   width: 100%;
   text-align: center;
-  color: white;
+  color: #748697;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-
 `;
 export const Button = styled.button`
   background-color: transparent;
   border: none;
   font-size: 2rem;
   cursor: pointer;
-    :first-child img {
-      transform: rotate(180deg);
-  `;
+  :first-child img {
+    transform: rotate(180deg);
+  }
+`;

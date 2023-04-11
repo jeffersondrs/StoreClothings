@@ -8,7 +8,7 @@ import {
 import { CartContext } from "../../contexts/cart.context";
 import CkeckoutItem from "../../assets/components/checkout-item/checkout-item.component";
 export default function Checkout() {
-  const { cartItems, totalPrice } = useContext(CartContext);
+  const { cartItems, cartTotal } = useContext(CartContext);
   return (
     <CheckoutContainer>
       <CheckoutHeaderContainer>
@@ -31,7 +31,7 @@ export default function Checkout() {
         {cartItems.map((cartItem) => (
           <CkeckoutItem key={cartItem.id} cartItem={cartItem} />
         ))}
-      <TotalContainer>Total: R$ {totalPrice}</TotalContainer>
+      <TotalContainer>Total: R$ {cartTotal}</TotalContainer>
     </CheckoutContainer>
   );
 }

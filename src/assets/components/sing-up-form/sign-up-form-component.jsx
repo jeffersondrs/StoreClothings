@@ -51,15 +51,15 @@ export default function SignUpForm() {
 
   return (
     <div className="flex flex-col justify-center items-center m-2 p-2">
-      <h1 className="text-2xl text-center my-3">Don't have an account?</h1>
+      <h1 className="text-2xl text-center my-3">Não tem uma conta?</h1>
       <h2 className="text-center my-3">
-        Sign Up with your e-mail and password
+        Cadastre-se com seu email e uma senha.
       </h2>
       <SignInFormContainer
         onSubmit={handleSubmit}
       >
         <FormInput
-          label="Name Complete"
+          label="Nome completo"
           type="text"
           required
           onChange={handleChange}
@@ -75,7 +75,7 @@ export default function SignUpForm() {
           value={email}
         />
         <FormInput
-          label="password"
+          label="Senha"
           type="password"
           required
           onChange={handleChange}
@@ -83,7 +83,7 @@ export default function SignUpForm() {
           value={password}
         />
         <FormInput
-          label="Confirm password"
+          label="Confirme a senha"
           type="password"
           required
           onChange={handleChange}

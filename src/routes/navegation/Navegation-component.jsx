@@ -29,18 +29,16 @@ export default function Navegation() {
           </div>
         </LogoContainer>
         <NavLinksContainer>
-          <NavLink to="/shop">SHOP</NavLink>
-          <NavLink to="/contact">CONTACT</NavLink>
+          <NavLink to="/shop">Loja</NavLink>
+          <NavLink to="/contact">Contato</NavLink>
           {currentUser ? (
-            <LinkContainer onClick={signOutUser}>Sign Out</LinkContainer>
+            <LinkContainer onClick={signOutUser}>Sair</LinkContainer>
           ) : (
-            <LinkContainer to="/auth">Sign-in</LinkContainer>
+            <LinkContainer to="/auth">Entrar</LinkContainer>
           )}
           <CartIcon />
         </NavLinksContainer>
-        <MenuLinksContainer>
-          <SlMenu className="w-6 h-6" />
-        </MenuLinksContainer>
+        
         {isCartOpen && <CartDropdown />}
       </NavegationContainer>
       <Outlet />
