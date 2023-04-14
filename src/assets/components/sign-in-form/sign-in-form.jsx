@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
+import { useNavigate } from "react-router-dom";
 import {
   signInWithGooglePopup,
   signInAuthWithEmailAndPassword,
@@ -7,6 +8,7 @@ import {
 import FormInput from "../form-input/Form-input.component";
 import Button, { btnTypesClasses } from "../button/button.component";
 import { SignInFormContainer, HeaderSingIn } from "./sign-in-form.styles";
+
 const defaultFormFields = {
   email: "",
   password: "",
@@ -15,6 +17,8 @@ const defaultFormFields = {
 export default function SignInForm() {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
+
+  const navigate = useNavigate();
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -26,6 +30,8 @@ export default function SignInForm() {
     try {
       const user = await signInAuthWithEmailAndPassword(email, password);
       resetFormFields();
+
+      console.log(user);
     } catch (err) {
       switch (err.code) {
         case "auth/wrong-password":

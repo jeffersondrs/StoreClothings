@@ -1,14 +1,21 @@
-import { useContext } from "react";
 import {
   CheckoutContainer,
   CheckoutHeaderContainer,
   HeaderBlockContainer,
   TotalContainer,
 } from "./checkout.styles";
-import { CartContext } from "../../contexts/cart.context";
 import CkeckoutItem from "../../assets/components/checkout-item/checkout-item.component";
+import { useSelector } from "react-redux";
+import {
+  selectCartItems,
+  selectCartTotal,
+} from "../../store/cart/cart.selector";
+import PaymentForm from "../../assets/components/payment-form/payment-form.component";
+
 export default function Checkout() {
-  const { cartItems, cartTotal } = useContext(CartContext);
+  const cartItems = useSelector(selectCartItems);
+  const cartTotal = useSelector(selectCartTotal);
+
   return (
     <CheckoutContainer>
       <CheckoutHeaderContainer>
@@ -28,10 +35,11 @@ export default function Checkout() {
           <span>Remover</span>
         </HeaderBlockContainer>
       </CheckoutHeaderContainer>
-        {cartItems.map((cartItem) => (
-          <CkeckoutItem key={cartItem.id} cartItem={cartItem} />
-        ))}
+      {cartItems.map((cartItem) => (
+        <CkeckoutItem key={cartItem.id} cartItem={cartItem} />
+      ))}
       <TotalContainer>Total: R$ {cartTotal}</TotalContainer>
+      <PaymentForm />
     </CheckoutContainer>
   );
 }

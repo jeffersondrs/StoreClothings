@@ -1,12 +1,11 @@
 import { Outlet } from "react-router-dom";
 import CartIcon from "../../assets/components/cart-icon/cart-icon.component";
 import CartDropdown from "../../assets/components/cart-dropdown/cart-dropdown.component";
-import { useContext } from "react";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selector";
-import { CartContext } from "../../contexts/cart.context";
+import { selectIsOpen } from "../../store/cart/cart.selector";
 import { SiReactos } from "react-icons/si";
-import { SlMenu } from "react-icons/sl";
+
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import {
   NavegationContainer,
@@ -14,12 +13,11 @@ import {
   NavLink,
   NavLinksContainer,
   LinkContainer,
-  MenuLinksContainer,
 } from "./navegation.styles";
 
 export default function Navegation() {
   const currentUser = useSelector(selectCurrentUser);
-  const { isCartOpen } = useContext(CartContext);
+  const isCartOpen = useSelector(selectIsOpen);
   return (
     <>
       <NavegationContainer>
@@ -38,7 +36,7 @@ export default function Navegation() {
           )}
           <CartIcon />
         </NavLinksContainer>
-        
+
         {isCartOpen && <CartDropdown />}
       </NavegationContainer>
       <Outlet />

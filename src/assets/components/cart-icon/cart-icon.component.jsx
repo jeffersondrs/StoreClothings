@@ -1,10 +1,19 @@
 import { CartIconContainer, ItemCountContainer } from "./cart-icon-styles";
-import { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectIsOpen,
+  selectCartCount,
+} from "../../../store/cart/cart.selector";
+import { setIsCartOpen } from "../../../store/cart/cart.action";
 import { BiShoppingBag } from "react-icons/bi";
-import { CartContext } from "../../../contexts/cart.context";
+
 export default function CartIcon() {
-  const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
-  const togleIsCartOpen = () => setIsCartOpen(!isCartOpen);
+  const dispatch = useDispatch();
+
+  const isCartOpen = useSelector(selectIsOpen);
+  const cartCount = useSelector(selectCartCount);
+
+  const togleIsCartOpen = () => dispatch(setIsCartOpen(!isCartOpen));
   return (
     <CartIconContainer onClick={togleIsCartOpen}>
       <BiShoppingBag className="w-14 h-14" />

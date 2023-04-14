@@ -2,6 +2,7 @@ import {
   GoogleSignInStyles,
   InvertedButtonStyles,
   buttonStyles,
+  ButtonSpinner,
 } from "./button.styles";
 export const btnTypesClasses = {
   base: "base",
@@ -15,7 +16,16 @@ const getButtonStyles = (buttonTypes = btnTypesClasses.base) =>
     [btnTypesClasses.google]: GoogleSignInStyles,
     [btnTypesClasses.inverted]: InvertedButtonStyles,
   }[buttonTypes]);
-export default function Button({ children, buttonTypes, ...otherProps }) {
+export default function Button({
+  children,
+  buttonTypes,
+  isLoading,
+  ...otherProps
+}) {
   const ButtonStyles = getButtonStyles(buttonTypes);
-  return <ButtonStyles {...otherProps}>{children}</ButtonStyles>;
+  return (
+    <ButtonStyles disabled={isLoading} {...otherProps}>
+      {isLoading ? <ButtonSpinner /> : children}
+    </ButtonStyles>
+  );
 }

@@ -7,16 +7,26 @@ import {
   RemoveButtonContainer,
   TextContainer,
 } from "./checkout-item.styles";
-import { useContext } from "react";
-import { CartContext } from "../../../contexts/cart.context";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addItemToCart,
+  clearItemFromCart,
+  removeItemFromCart,
+} from "../../../store/cart/cart.action";
+import { selectCartItems } from "../../../store/cart/cart.selector";
 
 export default function CkeckoutItem({ cartItem }) {
+  const dispatch = useDispatch();
+
   const { name, price, quantity, imageUrl } = cartItem;
-  const { clearItemFromCart, addItemToCart, removeItemFromCart } =
-    useContext(CartContext);
-  const clearItemHandler = () => clearItemFromCart(cartItem);
-  const addItemHandler = () => addItemToCart(cartItem);
-  const removeItemHandler = () => removeItemFromCart(cartItem);
+
+  const cartItems = useSelector(selectCartItems);
+
+  const clearItemHandler = () =>
+    dispatch(clearItemFromCart(cartItems, cartItem));
+  const addItemHandler = () => dispatch(addItemToCart(cartItems, cartItem));
+  const removeItemHandler = () =>
+    dispatch(removeItemFromCart(cartItems, cartItem));
 
   return (
     <CheckoutItemContainer>
@@ -25,13 +35,9 @@ export default function CkeckoutItem({ cartItem }) {
       </ImageContainer>
       <TextContainer>{name}</TextContainer>
       <QuantityContainer>
-        <ArrowContainer onClick={removeItemHandler}>
-          &#10094;
-        </ArrowContainer>
+        <ArrowContainer onClick={removeItemHandler}>&#10094;</ArrowContainer>
         <TextContainer>{quantity}</TextContainer>
-        <ArrowContainer onClick={addItemHandler}>
-          &#10095;
-        </ArrowContainer>
+        <ArrowContainer onClick={addItemHandler}>&#10095;</ArrowContainer>
       </QuantityContainer>
       <TextContainer>{price}</TextContainer>
       <RemoveButtonContainer onClick={clearItemHandler}>

@@ -1,5 +1,3 @@
-import "./cart-items.styles.scss";
-
 export default function CartItem({ cartItem }) {
   const { name, quantity, imageUrl, price } = cartItem;
 
