@@ -2,7 +2,6 @@ import { DirectoryMenuContainer } from "./directory.styles.jsx";
 import DirectoryItem from "../directory-item/Directory-item.component";
 import { Outlet } from "react-router-dom";
 import Caroucel from "../caroucel/Caroucel.component";
-import Footer from "../footer/Footer.component";
 
 export default function Directory({ categories }) {
   return (
@@ -23,9 +22,6 @@ export default function Directory({ categories }) {
       </DirectoryMenuContainer>
       <div className="p-20">
         <Caroucel />
-      </div>
-      <div>
-        <Footer />
       </div>
     </div>
   );

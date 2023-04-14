@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { selectIsOpen } from "../../store/cart/cart.selector";
 import { SiReactos } from "react-icons/si";
+import Footer from "../../assets/components/footer/footer.component";
 
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import {
@@ -40,6 +41,7 @@ export default function Navegation() {
         {isCartOpen && <CartDropdown />}
       </NavegationContainer>
       <Outlet />
+      <Footer />
     </>
   );
 }
